@@ -1,0 +1,22 @@
+# docker-compose.yml
+
+version: "3.9"
+services:
+  load_balancer:
+    build: ./load_balancer
+    restart: on-failure
+    ipc: host
+    environment:
+      - SERVERS_PATH=/home/node/app/proxy-servers.txt
+    # network_mode: host
+    ports:
+      - 8080:8080
+    volumes:
+      - ./:/home/node/app
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker
+  application:
+    build: ./application
+    restart: on-failure
+    ports:
+      - 8000:8000
