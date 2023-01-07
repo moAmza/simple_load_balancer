@@ -41,11 +41,3 @@ $ docker compose up --build
 You can also use docker compose for deploying load_balancer or metric_collector and setup the applications with other methods.
 </br>
 </br>
-
-## Stay in touch
-
-- Author - [Mohamad A. Zangooei](https://github.com/moAmza)
-- Email - mohamad.zangooei@outlook.com
-- Phone - +989150035325
-
-</br></br></br>
