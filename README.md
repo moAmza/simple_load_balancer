@@ -35,7 +35,7 @@ $ docker build -t name_of_image .  # Name of the application module should be ap
 $ docker run -p ...:... .   # If running metric_collector or load_balance, pass -v ...:/var/run/docker.sock
 
 # using docker compose
-$ docker compose up --build
+$ docker compose up --build   # Before this, you need to modify the path for docker.socket volume based on your operating system
 ```
 
 You can also use docker compose for deploying load_balancer or metric_collector and setup the applications with other methods.
