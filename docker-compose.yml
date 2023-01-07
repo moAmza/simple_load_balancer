@@ -5,18 +5,24 @@ services:
   load_balancer:
     build: ./load_balancer
     restart: on-failure
-    ipc: host
-    environment:
-      - SERVERS_PATH=/home/node/app/proxy-servers.txt
-    # network_mode: host
     ports:
-      - 8080:8080
+      - 80:8080
     volumes:
-      - ./:/home/node/app
       - /var/run/docker.sock:/var/run/docker.sock
-      - /usr/bin/docker:/usr/bin/docker
+
+  metric_collector:
+    build: ./metric_collector
+    restart: on-failure
+    ports:
+      - 9090:9090
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  ###########################
+  # This section is just for testing purposes. You can run your applications manually.
   application:
     build: ./application
     restart: on-failure
     ports:
       - 8000:8000
+  ###########################

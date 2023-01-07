@@ -1,11 +1,11 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const configPrometheus = require("./prom-config");
+const initMetrics = require("./init-metrics");
 
 dotenv.config();
 
 const run = async () => {
-  const promConfig = configPrometheus();
+  const metrics = initMetrics();
 
   const router = express
     .Router()
@@ -14,8 +14,8 @@ const run = async () => {
     );
 
   const app = express()
-    .use("/metrics", promConfig.router)
-    .use(promConfig.middleware)
+    .use("/metrics", metrics.router)
+    .use(metrics.middleware)
     .use(router)
     .listen(process.env.PORT, () =>
       console.log(`Listening on port ${process.env.PORT}`)

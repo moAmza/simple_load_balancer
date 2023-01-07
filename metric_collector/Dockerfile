@@ -7,8 +7,8 @@ COPY package.json package.json
 RUN npm install --production 
 
 COPY src src
-COPY proxy-servers.sh proxy-servers.sh
+COPY containers.sh containers.sh
 COPY .env.example .env
 
 
-CMD ["node", "src/index.js"]
+CMD ["node", "--no-warnings","src/index.js"]
