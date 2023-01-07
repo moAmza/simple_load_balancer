@@ -8,15 +8,21 @@ This project consists of three main parts. First, we have a load balancer that w
 
 ### - Load Balancer
 
-    At its core, the load balancer is a simple proxy that will redirect all requests to one of the available servers with a round-robin algorithm. To obtain the server ports, it uses the docker CLI and obtains running containers of the application image. So, if you want to run it as a docker container, you should remember to pass the docker.socket as a volume.
+```text
+At its core, the load balancer is a simple proxy that will redirect all requests to one of the available servers with a round-robin algorithm. To obtain the server ports, it uses the docker CLI and obtains running containers of the application image. So, if you want to run it as a docker container, you should remember to pass the docker.socket as a volume.
+```
 
 ### - Application
 
-    The application is a simple express app that has a get route on / and you can see the number of requests on this path on /metrics.
+```text
+The application is a simple express app that has a get route on / and you can see the number of requests on this path on /metrics.
+```
 
 ### - Metric Collector
 
-    The metric collector also uses docker.socket to obtain the id and port of application containers. It will query every available server in an interval (5 seconds by default) and updates its metrics.
+```text
+The metric collector also uses docker.socket to obtain the id and port of application containers. It will query every available server in an interval (5 seconds by default) and updates its metrics.
+```
 
 </br>
 
