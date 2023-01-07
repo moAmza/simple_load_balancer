@@ -31,7 +31,7 @@ $ cp .env.example .env
 $ npm run start
 
 # useing docker
-$ docker build -t name_of_image .  # Name of the application module should be application
+$ docker build -t name_of_image .  # Name of the application image should be application
 $ docker run -p ...:... .   # If running metric_collector or load_balance, pass -v ...:/var/run/docker.sock
 
 # using docker compose
